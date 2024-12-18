@@ -1,16 +1,16 @@
-import { useState } from "react";
-import Avatar from "./Avatar";
-import viewIcon from "../assets/view.png";
-import { useTheme } from "../hooks/useTheme";
+import { useState } from 'react';
+import Avatar from './Avatar';
+import viewIcon from '../assets/view.png';
+import { useTheme } from '../hooks/useTheme';
 
 function Hero() {
   const [showBalance, setShowBalance] = useState(true);
   const { theme } = useTheme();
-  const themeColor = theme === "green" ? "#19918F" : "#007BFF"; 
-  
-  const user = JSON.parse(localStorage.getItem("login"));
-  
-  const userName = user ? user.fullName : "User";
+  const themeColor = theme === 'green' ? '#19918F' : '#007BFF';
+
+  const user = JSON.parse(localStorage.getItem('login'));
+
+  const userName = user ? user.fullName : 'User';
   const userBalance = user ? user.balance : 0;
 
   return (
@@ -24,10 +24,13 @@ function Hero() {
             Check all your incoming and outgoing transactions here
           </p>
         </div>
-        <Avatar name={userName}/>
+        <Avatar name={userName} />
       </div>
       <div className="flex mt-[4.5rem] gap-x-12">
-        <div className="bg-[#19918F] p-12 rounded-2xl w-1/5 text-white" style={{backgroundColor: themeColor}}>
+        <div
+          className="bg-[#19918F] p-12 rounded-2xl w-1/5 text-white"
+          style={{ backgroundColor: themeColor }}
+        >
           <p>Account No.</p>
           <p className="mt-3 font-bold">100899</p>
         </div>
@@ -35,7 +38,7 @@ function Hero() {
           <p>Balance</p>
           <span className="flex items-center mt-3 gap-x-2">
             <p className="font-bold">
-              {showBalance ? `Rp${userBalance.toLocaleString()}` : "Rp ********"}
+              {showBalance ? `Rp${userBalance}` : 'Rp ********'}
             </p>
             <img
               src={viewIcon}
